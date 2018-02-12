@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "babel-preset-env": "*",
+    "jest": "*",
+    "babel-jest": "^22.2.2",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "jest-react-native": "^18.0.0",
+    "react-test-renderer": "16.2.0",
+    "reactotron-react-native": "^1.14.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-native": "^0.53.0"
+  }
+}
