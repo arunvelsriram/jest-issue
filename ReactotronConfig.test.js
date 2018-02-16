@@ -2,9 +2,6 @@ jest.mock("./DebugConfig", () => ({
   useReactotron: false
 }));
 
-import Reactotron from "reactotron-react-native";
-import "./ReactotronConfig";
-
 describe("Reactotron config", () => {
 
   beforeEach(() => {
@@ -12,17 +9,22 @@ describe("Reactotron config", () => {
   });
 
   test("when not using reactotron", () => {
-    expect(Reactotron.configure).not.toBeCalled();
+    const reactotron = require("reactotron-react-native");
+    require("./ReactotronConfig");
+
+    expect(reactotron.default.configure).not.toBeCalled();
   });
 
   test("when using reactotron", () => {
     jest.doMock("./DebugConfig", () => ({
       useReactotron: true
     }));
+
+    const reactotron = require("reactotron-react-native");
     require("./ReactotronConfig");
 
     console.log("Before expect");
-    console.log(Reactotron.configure.mock);
-    expect(Reactotron.configure).toBeCalled();
+    console.log(reactotron.default.configure.mock);
+    expect(reactotron.default.configure).toBeCalled();
   });
 });
